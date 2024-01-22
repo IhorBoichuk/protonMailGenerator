@@ -97,7 +97,8 @@ def randomize(
         return 'error'
 
 # Username
-_username_=f'{randomize('-s',5)}{randomize('-s',5)}{randomize('-s',5)}'
+_username_=f'{randomize('-s', 5)}{randomize('-s', 5)}{randomize('-s', 6)}'
+time.sleep(5)
 pyautogui.typewrite(_username_ + '\t\t\t')
 
 time.sleep(5)
@@ -110,28 +111,35 @@ pyautogui.typewrite('\t\t\t\n')
 
 pyautogui.keyDown('ctrlleft');  pyautogui.typewrite('t'); pyautogui.keyUp('ctrlleft')
 
-time.sleep(10)
+time.sleep(5)
 pyautogui.typewrite('https://dropmail.me/\n')
 
 
 pyautogui.keyDown('shift');pyautogui.keyDown('down'); pyautogui.keyUp('down'); pyautogui.keyUp('shift')
-time.sleep(10)
+time.sleep(5)
 
 pyautogui.keyDown('shift');pyautogui.keyDown('down'); pyautogui.keyUp('down'); pyautogui.keyUp('shift')
-time.sleep(10)
+time.sleep(5)
 
 newMail = True
 while True:
     if not newMail:
         pyautogui.keyDown('ctrlleft'); pyautogui.typewrite('r'); pyautogui.keyUp('ctrlleft')
         time.sleep(5)
-    pyautogui.typewrite('\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n')
+    
 
+    pyautogui.typewrite('\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t')
     time.sleep(5)
-    pyautogui.click()
-
-    time.sleep(5)
-    pyautogui.click()
+    pyautogui.keyDown('ctrlleft')
+    pyautogui.keyDown('shiftleft')
+    pyautogui.keyDown('shiftright')
+    pyautogui.press('down')
+    pyautogui.keyUp('shiftleft')
+    pyautogui.keyUp('shiftright')
+    pyautogui.keyUp('ctrlleft')
+    pyautogui.click(x=700, y=310, clicks=1,button='left')
+    pyautogui.keyDown('ctrlleft'); pyautogui.typewrite('c'); pyautogui.keyUp('ctrlleft')
+    newMail = getMail()
 
     newMail = getMail()
     if newMail:
@@ -169,7 +177,8 @@ time.sleep(10)
 pyautogui.typewrite('\n')
 time.sleep(10)
 pyautogui.typewrite('\t\t\t\n')
-time.sleep(5)
+time.sleep(5)                                               
+
 pyautogui.typewrite('\t\n')
 
 print(_username_+"@proton.me:" + _password_)
